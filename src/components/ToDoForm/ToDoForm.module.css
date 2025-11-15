@@ -1,0 +1,100 @@
+/* .container{
+    margin: 56px !important;
+} */
+
+/*
+  ToDoForm.module.css
+  Styling for the ToDoForm component.
+  Creates a neat, card-style form layout with smooth hover and focus effects.
+*/
+
+/* ====== Container Styling ====== */
+.container {
+  /* Center and size the form */
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 600px;
+
+  /* Soft gradient background for a light, modern feel */
+  background: linear-gradient(135deg, #f8fafc, #e9f5ff);
+
+  /* Rounded corners and subtle shadow for a card effect */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* Smooth transition for hover animation */
+  transition: all 0.3s ease;
+}
+
+/* Hover effect to slightly lift the container */
+.container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ====== Input Field Styling ====== */
+input.form-control {
+  /* Make input text slightly larger and easy to read */
+  font-size: 1rem;
+  padding: 10px 14px;
+
+  /* Light border and background */
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #ffffff;
+
+  /* Smooth focus effect */
+  transition: all 0.3s ease;
+}
+
+/* Input focus effect for better accessibility */
+input.form-control:focus {
+  border-color: #16a34a; /* Bootstrap success green */
+  box-shadow: 0 0 6px rgba(22, 163, 74, 0.3);
+  background-color: #fefefe;
+}
+
+/* ====== Success Alert Styling ====== */
+.alert {
+  font-weight: 500;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #d1fae5; /* light green tone */
+  border: 1px solid #16a34a;
+  color: #065f46;
+  margin-bottom: 20px;
+}
+
+/* ====== Button Customization ====== */
+button.btn-success {
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+
+  /* Add soft shadow and hover transition */
+  box-shadow: 0 3px 8px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Button hover effect */
+button.btn-success:hover {
+  background-color: #15803d; /* Darker green */
+  transform: scale(1.05);
+  box-shadow: 0 5px 12px rgba(16, 185, 129, 0.4);
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  input.form-control {
+    font-size: 0.95rem;
+  }
+
+  button.btn-success {
+    width: 100%; /* Full-width button on mobile */
+  }
+}

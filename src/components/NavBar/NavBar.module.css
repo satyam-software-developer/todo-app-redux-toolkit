@@ -1,0 +1,66 @@
+/* .navitem{
+    width:70px;
+} */
+
+/* 
+  NavBar.module.css
+  This file adds custom styling for the NavBar component,
+  extending Bootstrap's default look with modern and subtle effects.
+*/
+
+/* ====== Navbar Container Customization ====== */
+.navbar {
+  /* Optional: Override Bootstrap’s light gray background with a softer gradient */
+  background: linear-gradient(90deg, #fff8e1, #fff3cd);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== Navbar Brand (Logo/Text) Styling ====== */
+.navbar-brand {
+  font-weight: 700; /* Make the brand name bold */
+  font-size: 1.5rem; /* Slightly larger text for visibility */
+  color: #d97706 !important; /* Warm amber tone */
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #b45309 !important; /* Darker amber on hover */
+}
+
+/* ====== Navbar Item (li) Styling ====== */
+.navitem {
+  margin: 0 8px; /* Add small spacing between nav links */
+  list-style: none; /* Remove default bullet points */
+}
+
+/* ====== Navbar Link Styling ====== */
+.navitem .nav-link {
+  font-weight: 500;
+  color: #333 !important; /* Default dark text */
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* Hover and Active effects for links */
+.navitem .nav-link:hover,
+.navitem .nav-link.active {
+  background-color: #ffc107 !important; /* Bootstrap warning color */
+  color: #000 !important; /* Ensure text remains readable */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0px 4px 10px rgba(255, 193, 7, 0.3);
+}
+
+/* ====== Responsive Adjustments ====== */
+@media (max-width: 992px) {
+  .navitem {
+    text-align: center; /* Center items in the collapsed menu */
+    margin: 6px 0;
+  }
+
+  .navitem .nav-link {
+    display: block;
+    width: 100%;
+  }
+}

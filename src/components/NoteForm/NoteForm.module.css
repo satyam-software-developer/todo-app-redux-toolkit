@@ -1,0 +1,85 @@
+/* .noteContainer{
+    height: 200px;
+    margin:0 156px;
+} */
+
+/*
+  NoteForm.module.css
+  Provides styling for the NoteForm component.
+  Keeps the form centered and visually appealing.
+*/
+
+/* ====== Container Styling ====== */
+.noteContainer {
+  /* Center form on the page with padding */
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 600px;
+
+  /* Background with subtle gradient */
+  background: linear-gradient(135deg, #fefae0, #fff8dc);
+
+  /* Rounded corners and soft shadow for a card-like look */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  /* Smooth entrance animation */
+  transition: all 0.3s ease;
+}
+
+/* Add subtle hover effect on container */
+.noteContainer:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ====== Textarea Styling ====== */
+textarea.form-control {
+  /* Slightly increase padding and font size for better readability */
+  padding: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  /* Soften border and add radius */
+  border: 2px solid #d1d1d1;
+  border-radius: 8px;
+
+  /* Light yellowish background */
+  background-color: #fffdf5;
+
+  /* Smooth focus transition */
+  transition: all 0.2s ease;
+}
+
+/* Focused textarea effect */
+textarea.form-control:focus {
+  border-color: #16a34a; /* Bootstrap green */
+  box-shadow: 0 0 6px rgba(22, 163, 74, 0.3);
+  background-color: #ffffff;
+}
+
+/* ====== Button Styling (overriding Bootstrap slightly) ====== */
+button.btn-success {
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect for button */
+button.btn-success:hover {
+  background-color: #198754; /* Bootstrap success green */
+  transform: scale(1.05);
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 600px) {
+  .noteContainer {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  textarea.form-control {
+    font-size: 0.95rem;
+  }
+}

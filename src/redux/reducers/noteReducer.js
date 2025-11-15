@@ -1,0 +1,190 @@
+// // import {ADD_NOTE, DELETE_NOTE} from "../actions/noteActions";
+
+// const { createSlice } = require("@reduxjs/toolkit");
+
+// const initialState={
+//     notes:[{text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam'
+//     , createdOn: new Date().toDateString()},
+//     {text:'Aliquam erat volutpat. Ut tincidunt, velit vel aliquam commodo, tellus urna auctor tortor, non ultrices libero ante sed magna.'
+//     , createdOn: new Date().toDateString()}]
+// };
+
+// const noteSlice = createSlice({
+//     name:'note',
+//     initialState:initialState,
+//     reducers:{
+//         // this is add action
+//         add:(state, action)=>{
+//                 state.notes.push({
+//                     text:action.payload,
+//                     createdOn: new Date().toDateString()
+//                 })
+//         },
+//         delete:(state, action)=>{
+//             state.notes.splice(action.payload,1);
+//         }
+//     }
+// });
+
+// export const noteReducer=noteSlice.reducer;
+// export const actions = noteSlice.actions;
+
+// // selector
+
+// export const noteSelector = (state)=>state.noteReducer.notes;
+
+// // export function noteReducer(state=initialState, action){
+// //     switch(action.type){
+// //         case ADD_NOTE:
+// //             return {
+// //                 ...state,
+// //                 notes:[
+// //                     ...state.notes,
+// //                     {
+// //                         text:action.text,
+// //                         createdOn: new Date()
+// //                     }
+// //                 ]
+// //             }
+// //         case DELETE_NOTE:
+// //             state.notes.splice(action.index,1);
+// //             console.log(state.notes);
+// //             return{
+// //                 ...state,
+// //                 notes: [...state.notes]
+// //             }
+// //         default:
+// //             return state;
+// //     }
+// // }
+
+// =====================================================
+// 📄 noteReducer.js
+// =====================================================
+// This file defines a Redux slice (using Redux Toolkit)
+// for managing all Note-related state and logic.
+//
+// A "slice" automatically generates action creators and reducers,
+// reducing boilerplate and making Redux much cleaner.
+// =====================================================
+
+// Import createSlice function from Redux Toolkit
+const { createSlice } = require("@reduxjs/toolkit");
+
+// =====================================================
+// 🔸 Step 1: Define the Initial State
+// =====================================================
+// This is the default data that exists in your app
+// before any user interaction happens.
+
+const initialState = {
+  // The notes array holds all note objects.
+  // Each note has a 'text' (content) and 'createdOn' (date string).
+  notes: [
+    {
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam",
+      createdOn: new Date().toDateString(), // Automatically sets today's date
+    },
+    {
+      text: "Aliquam erat volutpat. Ut tincidunt, velit vel aliquam commodo, tellus urna auctor tortor, non ultrices libero ante sed magna.",
+      createdOn: new Date().toDateString(),
+    },
+  ],
+};
+
+// =====================================================
+// 🔸 Step 2: Create a Slice using createSlice()
+// =====================================================
+// createSlice automatically creates:
+// - action types
+// - action creators
+// - the reducer function
+// all in one place.
+
+const noteSlice = createSlice({
+  // The name of this slice (used as a key in Redux store)
+  name: "note",
+
+  // The default state when the app starts
+  initialState: initialState,
+
+  // Reducers define how state changes when actions are dispatched
+  reducers: {
+    /**
+     * 🟢 add()
+     * Adds a new note to the list.
+     *
+     * @param {object} state - The current Redux state.
+     * @param {object} action - The action object containing payload (text of note).
+     */
+    add: (state, action) => {
+      // Push a new note object to the notes array
+      state.notes.push({
+        text: action.payload, // The note text from the action
+        createdOn: new Date().toDateString(), // The current date as string
+      });
+    },
+
+    /**
+     * 🔴 delete()
+     * Deletes a note at a specific index.
+     *
+     * @param {object} state - The current Redux state.
+     * @param {object} action - The action object containing payload (index).
+     */
+    delete: (state, action) => {
+      // Removes one note from the notes array using its index
+      state.notes.splice(action.payload, 1);
+    },
+  },
+});
+
+// =====================================================
+// 🔸 Step 3: Export the Reducer and Actions
+// =====================================================
+
+// The reducer function generated by createSlice (used in Redux store)
+export const noteReducer = noteSlice.reducer;
+
+// The actions object contains automatically generated action creators
+// for each reducer (add and delete)
+export const actions = noteSlice.actions;
+
+// =====================================================
+// 🔸 Step 4: Create and Export a Selector
+// =====================================================
+// Selectors are helper functions that extract specific parts of the state.
+// This selector returns the list of notes from Redux state.
+export const noteSelector = (state) => state.noteReducer.notes;
+
+// =====================================================
+// 🧾 Legacy Example (Before Redux Toolkit)
+// =====================================================
+// Below is the traditional way of writing reducers
+// (commented out for reference).
+// It’s more verbose and requires manually defining action types and cases.
+//
+// export function noteReducer(state = initialState, action) {
+//   switch (action.type) {
+//     case ADD_NOTE:
+//       return {
+//         ...state,
+//         notes: [
+//           ...state.notes,
+//           {
+//             text: action.text,
+//             createdOn: new Date(),
+//           },
+//         ],
+//       };
+//     case DELETE_NOTE:
+//       state.notes.splice(action.index, 1);
+//       console.log(state.notes);
+//       return {
+//         ...state,
+//         notes: [...state.notes],
+//       };
+//     default:
+//       return state;
+//   }
+// }
